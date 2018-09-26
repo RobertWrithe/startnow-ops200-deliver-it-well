@@ -7,15 +7,15 @@ const expect = chai.expect;
 
 server.listen(4444);
 
-describe('server/app.js', function() {
+describe('server/app.js', function () {
   this.timeout(5000);
   beforeEach((done) => {
-    
+
     done();
   });
 
   afterEach((done) => {
-      done();
+    done();
   })
 
   it('responds to /', (done) => {
@@ -29,16 +29,16 @@ describe('server/app.js', function() {
   });
 
   it('page says hello world', (done) => {
-  chai.request(server)
-    .get('/')
-    .end((err, res) => {
-      expect(err).not.exist;
-      expect(JSON.stringify(res.text)).to.contain('Hello World');
-      done();
-    });
+    chai.request(server)
+      .get('/')
+      .end((err, res) => {
+        expect(err).not.exist;
+        expect(JSON.stringify(res.text)).to.contain('Hello World');
+        done();
+      });
   });
 
-  it('page tells a dumb joke', (done) => {
+  it('page tells a knock knock joke', (done) => {
     chai.request(server)
       .get('/')
       .end((err, res) => {
@@ -46,5 +46,5 @@ describe('server/app.js', function() {
         expect(JSON.stringify(res.text)).to.contain('Knock knock');
         done();
       });
-    });
+  });
 })
